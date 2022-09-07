@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>我的第一篇博客-搭建blog</title>
+    <link href="/2022/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BAblog/"/>
+    <url>/2022/09/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-%E6%90%AD%E5%BB%BAblog/</url>
+    
+    <content type="html"><![CDATA[<p>一直都很想搭建一个自己的博客，这几天刚好有时间，就花了几个小时借助<a href="https://hexo.io/">Hexo</a>和<a href="https://pages.github.com/">GitHub Pages</a>简单地搭建了一个自己的博客，可以说是非常简单好用。本文主要讲一下博客搭建的过程和搭建过程中踩的雷，希望能有参考价值。今后如果有时间也会自己在博客上写一些有关生活、思考和代码的东西，期待能够一直更新下去。</p><h2 id="博客搭建过程"><a href="#博客搭建过程" class="headerlink" title="博客搭建过程"></a>博客搭建过程</h2><h3 id="博客搭建前期准备"><a href="#博客搭建前期准备" class="headerlink" title="博客搭建前期准备"></a>博客搭建前期准备</h3><ol><li><code>Node.js</code>，在之前我已经因为小程序和前端需要进行过相关nvm、npm和nodejs系列配置，故这里不再赘述。</li><li><code>Git</code>，这里搭建建议是配置Github上的SSH密钥的，也可以配置一下淘宝源或者其他，很久之前就配置过了，同上不再赘述。</li></ol><h3 id="博客整体骨架结构搭建——Hexo"><a href="#博客整体骨架结构搭建——Hexo" class="headerlink" title="博客整体骨架结构搭建——Hexo"></a>博客整体骨架结构搭建——Hexo</h3><ol><li><code>npm install -g hexo-cli</code>安装Hexo相关脚手架，方便后续工作。可用<code>hexo -v</code>检查一下。</li><li>创建一个blog文件夹，用以存放博客相关文件，作为后续<code>git bash</code>的工作文件夹。</li><li>在文件夹中<code>hexo init</code>初始化博客基本框架，随后<code>npm install</code>配置一下node，这里基本完成本地搭建操作。</li><li>运行下述命令： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo g <span class="hljs-comment"># 加载hexo基础文件，生成静态网页</span><br>$ hexo s <span class="hljs-comment"># 创建一个服务器，本地预览效果</span><br>$ hexo d <span class="hljs-comment"># 用以部署到远端github上</span><br></code></pre></td></tr></table></figure></li><li>在本地浏览器查看 <a href="http://localhost:4000/">http://localhost:4000/</a> 界面，会看到hexo欢迎页，这里可以看到已经在本地创建成功了。最后部署到远端的命令则需要先完成下面的步骤。</li><li>关于博客主题，这里可以去Github或者是B站上搜索hexo theme，根据各自的参考文档说明进行安装即可。这里我使用的是 <strong><a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid</a></strong> 主题，有其个性化配置操作。</li></ol><h3 id="将博客部署到远端上——GitHub-Pages"><a href="#将博客部署到远端上——GitHub-Pages" class="headerlink" title="将博客部署到远端上——GitHub Pages"></a>将博客部署到远端上——GitHub Pages</h3><ol><li><p>在Github上新建一个个人仓库，仓库名设置为<code>username.github.io</code>，这里username是自己的github用户名。至于readme初始化必要性不大，这里在创建后也可以直接在仓库设置里面选择主题。</p></li><li><p>远程仓库准备完毕，现在需要在blog文件夹根目录下的<code>_config.yml</code>文件中配置自己的远程仓库地址，具体如下：</p> <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">deploy:<br>    type: git<br>    repository: 远程仓库SSH地址<br>    branch: master<br></code></pre></td></tr></table></figure></li><li><p>文件夹下git bash运行<code>npm i hexo-deployer-git</code>，安装部署脚手架，然后就可以用<code>hexo new post &quot;article title&quot;</code>命令创建新的博客文章了。随后还是按上面的命令三件套更新发布文章。注意，这里每次无论<code>hexo g</code>或<code>hexo s</code>，都最好先使用<code>hexo clean</code>清除本地缓存。</p></li><li><p>剩余的其他设置还在摸索中，这里可以在<code>_config.yml</code>中修改大部分的配置……其实在<a href="https://hexo.io/zh-cn/docs">Hexo参考文档</a>里写的都挺清楚的，剩下的就不再赘述了。主题配置见<a href="https://hexo.fluid-dev.com/docs/guide/">Fluid配置手册</a>。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>blog</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2022/09/07/hello-world/"/>
+    <url>/2022/09/07/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
