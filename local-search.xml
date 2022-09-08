@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>博客评论区搭建——utterances</title>
+    <link href="/2022/09/08/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%90%AD%E5%BB%BA/"/>
+    <url>/2022/09/08/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%90%AD%E5%BB%BA/</url>
+    
+    <content type="html"><![CDATA[<p>博客主体搭建基本完成，但是作为静态网页目前并没有评论区功能。本博客即是记载了搭建博客评论区的过程和一些相关设置项的说明。这里我是基于Hexo-fluid，通过<a href="https://utteranc.es/">utterances</a>来进行评论区搭建，整体而言非常轻松且快速，支持很好。</p><h3 id="博客评论区搭建"><a href="#博客评论区搭建" class="headerlink" title="博客评论区搭建"></a>博客评论区搭建</h3><p>对比了诸多博客评论区搭建的插件，国内的几个基本是无法考虑的，又要考虑到其成熟性，那么最后的选择就在<code>Gitalk</code>、<code>Valine</code>以及<code>utterances</code>中考虑了。最后我的选择是utterances，事实证明这确实是最轻松愉快的搭建方式。</p><ol><li><p><code>评论区仓库新建</code>：utterances是基于<code>GitHub issues</code>来搭建的评论区，很有意思的一个设计。那么既然是基于此，就需要一个Github仓库来承载其评论系统，这里只需要新建一个空的公共仓库即可。</p></li><li><p><code>安装utterances</code>：在Github上安装<a href="https://github.com/apps/utterances">utterances app</a>。这里安装过之后下一次打开就显示的不是install而是configure了。配置上，选择刚刚新建的评论区仓库，安装即可。</p></li><li><p><code>配置utterances</code>：在<a href="https://utteranc.es/">https://utteranc.es/</a>上配置相关选项。</p><ul><li>选择<code>repo</code>为之前选择的评论区仓库，这里需要填入的是username&#x2F;reponame形式。</li><li>在<code>Blog Post ↔️ Issue Mapping</code>中按需选择，这里我选择了根据title进行分组。</li><li>剩下的如<code>Issue Label</code>可自行按需设置。</li><li>复制最后<code>Enable Utterances</code>中的信息，可在后续设置中使用。这里基本就完成了配置设置，可以进行下一步fluid配置了。</li></ul></li><li><p><code>添加到Hexo-Fluid</code>：打开fluid主题配置文件(_config.fluid.yml)，将<code>comments:enable</code>设置为true以开启评论，同时修改<code>type</code>设为utterances。随后在后面找到comments的具体配置，配置可参考之前复制的信息如下：</p> <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">utterances:<br>    repo: username/远程评论仓库名<br>    issue_term: title<br>    label: #<br>    theme: github-light<br>    theme_dark: github-dark<br>    crossorigin: anonymous<br></code></pre></td></tr></table></figure></li><li><p><code>评论</code>：接下来就可以开心的进行评论了！utterances的配置的确是轻松+愉悦！如果想要关闭某博客的评论区，也可以直接在上方博客头设置中加上<code>comments: false</code>即可。这就是站在巨人的肩膀上吧。</p></li></ol><blockquote><p>参考：<a href="https://blog.csdn.net/weixin_43641850/article/details/105284634">https://blog.csdn.net/weixin_43641850/article/details/105284634</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>blog</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>blog utterances</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客搭建踩坑记录+DNS修复</title>
     <link href="/2022/09/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/09/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
