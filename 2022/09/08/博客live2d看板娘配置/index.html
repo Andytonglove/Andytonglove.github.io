@@ -16,23 +16,26 @@
   <meta name="author" content="Andytonglove">
   <meta name="keywords" content="">
   
-    <meta name="description" content="博客主体搭建基本完成，但是作为静态网页目前并没有评论区功能。本博客即是记载了搭建博客评论区的过程和一些相关设置项的说明。这里我是基于Hexo-fluid，通过utterances来进行评论区搭建，整体而言非常轻松且快速，支持很好。 博客评论区搭建对比了诸多博客评论区搭建的插件，国内的几个基本是无法考虑的，又要考虑到其成熟性，那么最后的选择就在Gitalk、Valine以及utterances中考虑">
+    <meta name="description" content="博客主体和评论区的搭建都完成了，感觉还是少了点什么，思来想去发现还差一个可爱的二次元看板娘，于是又给自己加了点折腾的活，没想到这个live2d看板娘并不是那么好做的，想要一个进阶版本的还是很折腾了一会儿的。本文即是记载折腾看板娘的过程，还有博客备份以及其他的一些杂七杂八的比如about-index的设置，希望能有所收获。具体效果可见本站左下角。😃 博客美化之看板娘 参考：https:&#x2F;&#x2F;gith">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客评论区搭建——utterances">
-<meta property="og:url" content="https://andytonglove.github.io/2022/09/08/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="博客live2d看板娘配置——fluid主题">
+<meta property="og:url" content="https://andytonglove.github.io/2022/09/08/%E5%8D%9A%E5%AE%A2live2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Andytonglove&#39;s blog">
-<meta property="og:description" content="博客主体搭建基本完成，但是作为静态网页目前并没有评论区功能。本博客即是记载了搭建博客评论区的过程和一些相关设置项的说明。这里我是基于Hexo-fluid，通过utterances来进行评论区搭建，整体而言非常轻松且快速，支持很好。 博客评论区搭建对比了诸多博客评论区搭建的插件，国内的几个基本是无法考虑的，又要考虑到其成熟性，那么最后的选择就在Gitalk、Valine以及utterances中考虑">
+<meta property="og:description" content="博客主体和评论区的搭建都完成了，感觉还是少了点什么，思来想去发现还差一个可爱的二次元看板娘，于是又给自己加了点折腾的活，没想到这个live2d看板娘并不是那么好做的，想要一个进阶版本的还是很折腾了一会儿的。本文即是记载折腾看板娘的过程，还有博客备份以及其他的一些杂七杂八的比如about-index的设置，希望能有所收获。具体效果可见本站左下角。😃 博客美化之看板娘 参考：https:&#x2F;&#x2F;gith">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-08T00:56:08.477Z">
+<meta property="article:published_time" content="2022-09-08T12:58:30.000Z">
+<meta property="article:modified_time" content="2022-09-08T13:15:10.248Z">
 <meta property="article:author" content="Andytonglove">
 <meta property="article:tag" content="blog">
-<meta property="article:tag" content="utterances">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="live2d">
+<meta property="article:tag" content="fluid">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>博客评论区搭建——utterances - Andytonglove&#39;s blog</title>
+  <title>博客live2d看板娘配置——fluid主题 - Andytonglove&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="博客评论区搭建——utterances"></span>
+            <span id="subtitle" data-typed-text="博客live2d看板娘配置——fluid主题"></span>
           
         </div>
 
@@ -208,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-08 00:00" pubdate>
-          2022年9月8日 凌晨
+        <time datetime="2022-09-08 20:58" pubdate>
+          2022年9月8日 晚上
         </time>
       </span>
     
@@ -220,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.1k 字
         
       </span>
     
@@ -231,7 +234,7 @@
         
         
         
-          10 分钟
+          18 分钟
         
       </span>
     
@@ -269,35 +272,41 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">博客评论区搭建——utterances</h1>
+            <h1 style="display: none">博客live2d看板娘配置——fluid主题</h1>
             
             
               <div class="markdown-body">
                 
-                <p>博客主体搭建基本完成，但是作为静态网页目前并没有评论区功能。本博客即是记载了搭建博客评论区的过程和一些相关设置项的说明。这里我是基于Hexo-fluid，通过<a target="_blank" rel="noopener" href="https://utteranc.es/">utterances</a>来进行评论区搭建，整体而言非常轻松且快速，支持很好。</p>
-<h3 id="博客评论区搭建"><a href="#博客评论区搭建" class="headerlink" title="博客评论区搭建"></a>博客评论区搭建</h3><p>对比了诸多博客评论区搭建的插件，国内的几个基本是无法考虑的，又要考虑到其成熟性，那么最后的选择就在<code>Gitalk</code>、<code>Valine</code>以及<code>utterances</code>中考虑了。最后我的选择是utterances，事实证明这确实是最轻松愉快的搭建方式。</p>
+                <p>博客主体和评论区的搭建都完成了，感觉还是少了点什么，思来想去发现还差一个可爱的二次元看板娘，于是又给自己加了点折腾的活，没想到这个<code>live2d看板娘</code>并不是那么好做的，想要一个进阶版本的还是很折腾了一会儿的。本文即是记载折腾看板娘的过程，还有博客备份以及其他的一些杂七杂八的比如about-index的设置，希望能有所收获。<br>具体效果可见<a href="https://andytonglove.github.io/">本站</a>左下角。😃</p>
+<h3 id="博客美化之看板娘"><a href="#博客美化之看板娘" class="headerlink" title="博客美化之看板娘"></a>博客美化之看板娘</h3><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">https://github.com/stevenjoezhang/live2d-widget</a><br>相关参考：<a target="_blank" rel="noopener" href="https://www.freesion.com/article/35391270847/">https://www.freesion.com/article/35391270847/</a></p>
+</blockquote>
+<p>可爱的二次元看板娘美化当然是博客充满生气的不二之选，我这里因为用的是Hexo的fluid主题，所以两种看板娘方案我都进行了尝试，最后选择了较为复杂和丰富的一种，下详述。</p>
 <ol>
-<li><p><code>评论区仓库新建</code>：utterances是基于<code>GitHub issues</code>来搭建的评论区，很有意思的一个设计。那么既然是基于此，就需要一个Github仓库来承载其评论系统，这里只需要新建一个空的公共仓库即可。</p>
+<li><p><code>初级看板娘</code>：使用官方hexo-helper-live2d，方法简单但效果一般，包已经4年未维护，具体的model可以在<a target="_blank" rel="noopener" href="https://github.com/xiazeyu/live2d-widget-models">live2d-widget-models</a>中搜索并选择心仪的小姐姐安装。由于各种更新问题本人不太推荐这种方法。分别在bash和主题配置文件<code>_config.yml</code>中基本设置如下，具体其他设置其他博客详细说了，就不再赘述了：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install --save hexo-helper-live2d<br></code></pre></td></tr></table></figure>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">live2d:<br>    enable: true<br></code></pre></td></tr></table></figure>
 </li>
-<li><p><code>安装utterances</code>：在Github上安装<a target="_blank" rel="noopener" href="https://github.com/apps/utterances">utterances app</a>。这里安装过之后下一次打开就显示的不是install而是configure了。配置上，选择刚刚新建的评论区仓库，安装即可。</p>
+<li><p><code>高级看板娘</code>：基本的都可以参考GitHub大神的<a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">把萌萌哒的看板娘抱回家</a>说明。这里着重说一下主要的踩坑点和具体步骤如下：</p>
+<ol>
+<li><p>clone大神项目到本地博客目录的<code>themes/source</code>下，修改<code>autoload.js</code>文件，有基础看教程一看就懂，因人而异，我的具体改动为从上面改到下面：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//const live2d_path = &quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/&quot;;</span><br><span class="hljs-keyword">const</span> live2d_path = <span class="hljs-string">&quot;/live2d/&quot;</span>;<br></code></pre></td></tr></table></figure>
 </li>
-<li><p><code>配置utterances</code>：在<a target="_blank" rel="noopener" href="https://utteranc.es/">https://utteranc.es/</a>上配置相关选项。</p>
-<ul>
-<li>选择<code>repo</code>为之前选择的评论区仓库，这里需要填入的是username&#x2F;reponame形式。</li>
-<li>在<code>Blog Post ↔️ Issue Mapping</code>中按需选择，这里我选择了根据title进行分组。</li>
-<li>剩下的如<code>Issue Label</code>可自行按需设置。</li>
-<li>复制最后<code>Enable Utterances</code>中的信息，可在后续设置中使用。这里基本就完成了配置设置，可以进行下一步fluid配置了。</li>
-</ul>
+<li><p><strong><code>加入依赖和引入Fluid</code><strong>：不得不说这一步是最为特殊的，因为网上基本没有对fluid的看板娘美化，这里我们还是查阅<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/advance/#hexo-%E6%B3%A8%E5%85%A5%E4%BB%A3%E7%A0%81">官方文档进阶用法</a>，这里讲了Hexo和Fluid注入代码的方式，这里我就不再多说。在博客文件夹下新建scripts文件夹，新建js文件，直接上个人参考代码，js一看就懂：由此便可以把</strong>必需</strong>的依赖和live2d都注入到界面中。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Hexo 注入代码</span><br>hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">injector</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;head_begin&#x27;</span>, <span class="hljs-string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css&quot;&gt;&#x27;</span>, <span class="hljs-string">&#x27;default&#x27;</span>);<br><span class="hljs-comment">// Fluid 注入代码</span><br>hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">filter</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;theme_inject&#x27;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">injects</span>) &#123;<br>    injects.<span class="hljs-property">head</span>.<span class="hljs-title function_">raw</span>(<span class="hljs-string">&#x27;default&#x27;</span>, <span class="hljs-string">&#x27;&lt;script src=&quot;https://username.github.io/live2d-widget/autoload.js&quot;&gt;&lt;/script&gt;&#x27;</span>);<br>&#125;);<br></code></pre></td></tr></table></figure>
 </li>
-<li><p><code>添加到Hexo-Fluid</code>：打开fluid主题配置文件(_config.fluid.yml)，将<code>comments:enable</code>设置为true以开启评论，同时修改<code>type</code>设为utterances。随后在后面找到comments的具体配置，配置可参考之前复制的信息如下：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">utterances:<br>    repo: username/远程评论仓库名<br>    issue_term: title<br>    label: #<br>    theme: github-light<br>    theme_dark: github-dark<br>    crossorigin: anonymous<br></code></pre></td></tr></table></figure>
-</li>
-<li><p><code>评论</code>：接下来就可以开心的进行评论了！utterances的配置的确是轻松+愉悦！如果想要关闭某博客的评论区，也可以直接在上方博客头设置中加上<code>comments: false</code>即可。这就是站在巨人的肩膀上吧。</p>
+<li><p>依旧是如上修改主题文件，具体还想做其他看板娘大小、位置、格式、文本内容等的修改，可自行查看并修改 <code>waifu-tips.js</code> 、 <code>waifu-tips.json</code> 和 <code>waifu.css</code>。这里live2d因为是<code>jsdelivr</code>下的，由于众所周知的原因速度会有一些慢和玄学，也需要等资源的刷新，不过他人的cdn也挺好的，感谢。接下来就可以欣赏我们的小姐姐了！</p>
 </li>
 </ol>
-<blockquote>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43641850/article/details/105284634">https://blog.csdn.net/weixin_43641850/article/details/105284634</a></p>
+</li>
+</ol>
+<h3 id="博客备份"><a href="#博客备份" class="headerlink" title="博客备份"></a>博客备份</h3><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_21040559/article/details/109702142">https://blog.csdn.net/qq_21040559/article/details/109702142</a></p>
 </blockquote>
+<p>这里简而言之，<code>hexo d</code>上传部署到github的其实是hexo编译后的文件，即是在public文件夹内用来生成网页的，不包含源文件。这样如果换了主机就需要重新进行繁琐的主题配置。所以这里我们直接在原仓库里新开一个备份用分支，并设为默认以方便上传。随后我们将新分支clone下来并留下<code>.git</code>文件夹拷贝至blog总文件夹中，留存git信息，从而就可以重新执行一遍commit和push，完成备份。之后只需要clone下来并<code>npm install</code>需要的包即可。具体如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git add .<br>$ git commit -m <span class="hljs-string">&quot;backup&quot;</span><br>$ git push origin backup<br></code></pre></td></tr></table></figure>
+
+<h3 id="Git小记"><a href="#Git小记" class="headerlink" title="Git小记"></a>Git小记</h3><p>一如既往地遇见一些抽风问题并进行解决，首先是git push和clone时候的常规报错，先别急着去改SSH，看一下电脑梯子、代理或重启有时有奇效。</p>
 
                 
               </div>
@@ -333,7 +342,13 @@
       
         <a href="/tags/blog/">#blog</a>
       
-        <a href="/tags/utterances/">#utterances</a>
+        <a href="/tags/Git/">#Git</a>
+      
+        <a href="/tags/Hexo/">#Hexo</a>
+      
+        <a href="/tags/live2d/">#live2d</a>
+      
+        <a href="/tags/fluid/">#fluid</a>
       
     </div>
   
@@ -345,8 +360,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>博客评论区搭建——utterances</div>
-      <div>https://andytonglove.github.io/2022/09/08/博客评论区搭建/</div>
+      <div>博客live2d看板娘配置——fluid主题</div>
+      <div>https://andytonglove.github.io/2022/09/08/博客live2d看板娘配置/</div>
     </div>
     <div class="license-meta">
       
@@ -388,18 +403,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/08/%E5%8D%9A%E5%AE%A2live2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/" title="博客live2d看板娘配置——fluid主题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">博客live2d看板娘配置——fluid主题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" title="博客搭建踩坑记录+DNS修复">
-                        <span class="hidden-mobile">博客搭建踩坑记录+DNS修复</span>
+                      <a href="/2022/09/08/%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%90%AD%E5%BB%BA/" title="博客评论区搭建——utterances">
+                        <span class="hidden-mobile">博客评论区搭建——utterances</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
