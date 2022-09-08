@@ -20,7 +20,9 @@
     
     <tags>
       
-      <tag>blog utterances</tag>
+      <tag>blog</tag>
+      
+      <tag>utterances</tag>
       
     </tags>
     
@@ -45,7 +47,13 @@
     
     <tags>
       
-      <tag>blog Git Hexo DNS</tag>
+      <tag>blog</tag>
+      
+      <tag>Git</tag>
+      
+      <tag>Hexo</tag>
+      
+      <tag>DNS</tag>
       
     </tags>
     
