@@ -4,6 +4,41 @@
   
   
   <entry>
+    <title>融合遥感影像与车辆轨迹的立交桥精细结构识别</title>
+    <link href="/2023/02/07/%E8%9E%8D%E5%90%88%E9%81%A5%E6%84%9F%E5%BD%B1%E5%83%8F%E4%B8%8E%E8%BD%A6%E8%BE%86%E8%BD%A8%E8%BF%B9%E7%9A%84%E7%AB%8B%E4%BA%A4%E6%A1%A5%E7%B2%BE%E7%BB%86%E7%BB%93%E6%9E%84%E8%AF%86%E5%88%AB/"/>
+    <url>/2023/02/07/%E8%9E%8D%E5%90%88%E9%81%A5%E6%84%9F%E5%BD%B1%E5%83%8F%E4%B8%8E%E8%BD%A6%E8%BE%86%E8%BD%A8%E8%BF%B9%E7%9A%84%E7%AB%8B%E4%BA%A4%E6%A1%A5%E7%B2%BE%E7%BB%86%E7%BB%93%E6%9E%84%E8%AF%86%E5%88%AB/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Fusing-Trajectories-and-RS-Images-to-Recognize-the-Fine-Structure-of-Overpass"><a href="#Fusing-Trajectories-and-RS-Images-to-Recognize-the-Fine-Structure-of-Overpass" class="headerlink" title="Fusing Trajectories and RS Images to Recognize the Fine Structure of Overpass"></a>Fusing Trajectories and RS Images to Recognize the Fine Structure of Overpass</h3><p>本页面为<code>融合遥感影像与车辆轨迹数据的立交桥精细结构识别</code>项目主页。</p><p>项目可见<a href="https://github.com/Andytonglove/roadtest">Github仓库</a>，感谢支持。😃</p><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote><p>近年来，随着智慧城市、三维实景中国建设的逐步推进，城市路网交通信息的精确获取与更新也变得愈发重要。然而，过去传统的道路信息提取研究往往局限于单一类型的数据源，对于道路结构的推断方法也存在着一定的局限性，在处理以立交桥为代表的这类具有复杂拓扑结构的立体交叉道口区域时效果欠佳。</p></blockquote><p>本研究项目即是希望旨在创新性地采用多源融合的方式，同时使用遥感影像与轨迹数据，通过构建深度学习网络来识别立交桥这类复杂的交通区域。我们希望能通过研究基于深度学习的多元融合的立交桥精细结构识别提取，为智慧城市路网信息系统与三维实景中国建设中复杂交通道口这一疑难问题贡献新的解决方案，提升城市路网构建的全面性、精确性与可扩展性。</p><p>本项目首先了解了过往的各类研究，随后针对本项目数据进行了项目数据源的获取与预处理过程，紧接着研究了神经网络进行路网信息提取的原理、特点以及目前前瞻性的模型与技术，然后针对本项目组所使用的神经网络的设计、模型、结构与创新点需求进行了设计与测试实践。</p><p><img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/overall.png" alt="overall"></p><h3 id="数据源"><a href="#数据源" class="headerlink" title="数据源"></a>数据源</h3><p>本项目所使用的数据源主要包括遥感影像与车辆轨迹数据，其中遥感影像数据来源于华为提供，车辆轨迹数据同样来源于华为提供的对应的的轨迹数据服务。</p><p>此处略。</p><h3 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h3><ol><li><p>初步实验：<br> <img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/first.png" alt="first"></p></li><li><p>神经网络设计</p><ul><li><p>总体结构：参考了了<code>U-Net</code>与<code>D-LinkNet</code>的结构，同时在以<code>CGAN</code>模式为基础进行了改进，使得网络能够更好地提取路网信息。<br> <img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/all-structure.png" alt="all-structure"></p></li><li><p>生成器：<br> <img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/discriminator.png" alt="discriminator"></p></li><li><p>判别器：<br> <img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/Generator.png" alt="Generator"><br> 结构设计旨在使得判别器能够更好地判断生成器生成的图像与真实图像的差异性，从而使得生成器能够更好地学习到路网信息；可以有效解决生成图像存在<code>道路断裂</code>时的判别错误的问题。</p></li><li><p>损失函数：<br> <img src="https://raw.githubusercontent.com/Andytonglove/roadtest/master/fx.png" alt="fx"></p></li></ul></li><li><p>发展展望：</p><ul><li><p><a href="https://github.com/songtaohe/Sat2Graph">Sat2Graph: Road Graph Extraction through Graph-Tensor Encoding</a></p></li><li><p>Fusing Taxi Trajectories and RS Images to Build Road Map via DCNN</p></li><li><p><a href="https://github.com/zlckanata/DeepGlobe-Road-Extraction-Challenge">D-LinkNet: Linknet with pretrained encoder and dilated convolution for high resolution satellite imagery road extraction</a></p></li><li><p>逐步从单源数据融合到多源数据融合，从而使得路网信息提取更加精确；逐步从普通道路提取转向立交桥结构针对性提取。</p></li></ul></li></ol><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><p>陆川伟, 孙群, 陈冰,等. 车辆轨迹数据的道路学习提取法[J]. 测绘学报, 2020, 49(6):11.</p></li><li><p>ZHOU L，ZHANG C，WU M．D-LinkNet: Linknet with pretrained encoder and dilated convolution for high resolution satellite imagery road extraction［A］． IEEE &#x2F; CVF Conference on Computer Vision &amp; Pattern Recognition Workshops［C］． Salt Lake City: IEEE，2018:182－186．</p></li><li><p>Yali Li,Longgang Xiang,Caili Zhang,Huayi Wu. Fusing Taxi Trajectories and RS Images to Build Road Map via DCNN.[J]. IEEE Access,2019,7:</p></li><li><p>He S , Bastani F , Jagwani S , et al. Sat2Graph: Road Graph Extraction through Graph-Tensor Encoding[J]. 2020.</p></li><li><p>……</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>docs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docs</tag>
+      
+      <tag>UNet</tag>
+      
+      <tag>语义分割</tag>
+      
+      <tag>立交桥</tag>
+      
+      <tag>遥感影像</tag>
+      
+      <tag>车辆轨迹</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>博客live2d看板娘配置——fluid主题</title>
     <link href="/2022/09/08/%E5%8D%9A%E5%AE%A2live2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/"/>
     <url>/2022/09/08/%E5%8D%9A%E5%AE%A2live2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E9%85%8D%E7%BD%AE/</url>
